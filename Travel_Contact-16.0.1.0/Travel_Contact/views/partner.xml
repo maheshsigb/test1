@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Define a new record  -->
+        <record id="travel_contact_smart_button" model="ir.ui.view">
+            <!-- Specify the name of the view -->
+            <field name="name">travel.view.buttons</field>
+            <!-- Define the model to which this view applies -->
+            <field name="model">res.partner</field>
+            <!-- Reference the view to inherit from, in this case, "base.view_partner_form" -->
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <!-- Define the view's structure using XML -->
+            <field name="arch" type="xml">
+                <!-- Make the following fields invisible in the view -->
+                <field name="vat" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="phone" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="street" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="street2" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="city" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="website" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="category_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="image_1920" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <!-- Insert the "reward_level" field after the "vat" field -->
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="reward_level" widget="selection"/>
+
+                </xpath>
+                <!-- Define a button inside the view -->
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="get_travel"
+                            icon="fa-car">
+                        <!-- Display the "travel_count" field as a statistic -->
+                        <field name="travel_count" widget="statinfo"
+                               string="Nombre de Voyage"/>  <!-- Supprimez l'attribut 'string' ici -->
+                    </button>
+                </div>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

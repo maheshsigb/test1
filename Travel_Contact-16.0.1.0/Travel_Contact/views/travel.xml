@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define a new record for the form view of the "travel.travel" model -->
+    <record id="view_voyage_form" model="ir.ui.view">
+        <field name="name">travel.form</field>
+        <field name="model">travel.travel</field>
+        <field name="arch" type="xml">
+            <form string="Voyage Form">
+                <group>
+                    <field name="contact_id"/>
+                    <field name="name"/>
+                    <field name="depart"/>
+                    <field name="destination"/>
+                    <field name="time_depart"/>
+                    <field name="nb_place"/>
+                    <field name="montant"/>
+                    <field name="list_voyages_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_voyage_tree" model="ir.ui.view">
+        <field name="name">travel.tree</field>
+        <field name="model">travel.travel</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="contact_id"/>
+                <field name="name"/>
+                <field name="depart"/>
+                <field name="destination"/>
+                <field name="time_depart"/>
+                <field name="nb_place"/>
+                <field name="montant"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_voyage" model="ir.actions.act_window">
+        <field name="name">Voyages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">travel.travel</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Create a menu item for "Travels" -->
+    <menuitem id="voyages"
+              name="Voyages_Contacts"
+              parent="Travel_Contact"
+              action="action_voyage"
+              sequence="10"/>
+</odoo>

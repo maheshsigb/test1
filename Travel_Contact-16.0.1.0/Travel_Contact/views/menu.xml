@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Define a new menu item with the id "Travel_Contact" -->
+    <menuitem id="Travel_Contact"
+              name="Travel_Contact"
+              sequence="10"/>
+
+</odoo>
